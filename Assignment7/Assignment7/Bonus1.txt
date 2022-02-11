@@ -1,0 +1,20 @@
+Optional Challenge 1 (0.25 bonus points): Now that you’ve implemented some basic form
+validation, try to think of ways to improve the user experience of this form. For example,
+what is missing from the PHP validation that may be helpful to the user? Can you think of
+any ways to help the user get a better understanding of what kind of information is being
+asked for and what they may have done wrong if their input is rejected? Submit your
+answer in a text file with your submission.
+
+
+Below are the points to improve the user experience of the webform:
+
+1. Organize the order of form fields and try to minimize the number of form fields.
+   The form given in the assignment has random information, which can be improve by asking more topic related user inputs.
+2. Match CSS layout of the fields throughout the form.
+   The form given has different layout in the list field, which will cause visual problem if there is more coming fields like this.
+3. Highlight the field with error message. 
+   The form given is only displaying the error messages after failing at validation. However, highlight the corresponding field with the error messages can help user to better indicate the failing parts.
+4. Set input masks
+   The input masks can apply on the date field to better format.
+5. Distinguish buttons with different CSS
+   The given form has two buttons doing two different tasks. It will be a good idea to have different CSS added to them. By this, users can easily recognize the difference of the button from their visual.

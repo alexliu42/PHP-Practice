@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Assignment 9</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <h1>Assignment 9: AJAX</h1>
+
+    <div class="write-comment">
+      <h2>Post a Comment</h2>
+
+      <form action="https://jsonplaceholder.typicode.com/posts" method="post">
+
+        <label>
+          Title:
+          <input type="text" id="title">
+        </label>
+
+        <label>
+          Enter a Comment:
+          <textarea id="body"></textarea>
+        </label>
+
+        <button type="submit" name="button">Post Comment</button>
+        
+        <div class='comments'>
+          <h2>Comments</h2>
+        </div>
+        
+      </form>
+    </div>
+    <script>
+      $(document).ready(function(data){
+        /*Write your code here*/
+        jQuery.get("https://jsonplaceholder.typicode.com/posts", function(data,status){
+          for(i=0; i < 10; i++){
+            const parentDiv = document.createElement('div');
+            parentDiv.className = 'comment';
+            parentDiv.innerHTML = "<div class='ID'>Post ID: " + data[i].id + " </div><div class='comment-text'><p>" + data[i].body + "</p></div>"
+            document.getElementsByClassName('comments')[0].append(parentDiv);
+          }
+        });
+        jQuery(document).on('submit', function (e) {
+          e.preventDefault();
+          jQuery.post("https://jsonplaceholder.typicode.com/posts",
+          {
+            title: document.getElementById("title").value,
+            body: document.getElementById("body").value
+          }).done(function(data){
+            console.log("Post Saved")
+            console.log(data);
+          });
+        });
+      });  
+    </script>
+  </body>
+</html>
